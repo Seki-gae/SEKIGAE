@@ -28,20 +28,20 @@ public class MainActivity extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		System.out.println("ACTIVITY ONCLEATE"); //$NON-NLS-1$
 		super.onCreate(savedInstanceState);
+		// レイアウト定義
 		setContentView(R.layout.activity_main);
 		// インテントを取得
 		Intent intent = getIntent();
 		// インテントに保存されたデータを取得
 		this.num = intent.getIntExtra("NUM", -1);
-		if (this.num == -1) {
-			this.num = 1;
-		}
 		// グローバル変数を取得
 		this.globals = (Globals) this.getApplication();
-		// 初期化
-		this.globals.GlobalsAllInit();
+		if (this.num == -1) {
+			this.num = 1;
+			// 初期化
+			this.globals.GlobalsAllInit();
+		}
 		this.editText = (EditText) findViewById(R.id.editText1);
-		// レイアウト定義
 		this.button = (Button) findViewById(R.id.button1);
 		this.button.setOnClickListener(this);
 	}
@@ -51,8 +51,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 
 		// グローバル変数に値を入れる
-		MainActivity.this.globals.str = MainActivity.this.editText.getText()
-				.toString();
+		MainActivity.this.globals.nameList.add(MainActivity.this.editText
+				.getText().toString());
 		// インテントの生成
 		Intent intent;
 		if (this.MEMBER_NUM - this.num != 0) {

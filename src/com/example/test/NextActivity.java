@@ -17,6 +17,10 @@ public class NextActivity extends Activity {
 		//グローバル変数を取得
         this.globals = (Globals) this.getApplication();
         TextView textView = (TextView) findViewById(R.id.textView1);
-        textView.setText(this.globals.str);
+        String memberList = "" ;
+        for (String name : this.globals.nameList) {
+			memberList += "○　"+ name + " . \n"; 
+		}
+        textView.setText(memberList);
 	}
 }

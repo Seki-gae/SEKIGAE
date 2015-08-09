@@ -22,6 +22,9 @@ public class Globals extends Application {
 		for (int i = 0; i < this.hogera.length; i++) {
 			 this.hogera[i] = 0;
 		}
-		this.nameList.clear();
+		if(this.nameList.size() != 0){
+			this.nameList.clear();			
+		}
+
 	}
 }

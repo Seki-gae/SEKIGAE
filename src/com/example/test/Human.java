@@ -13,12 +13,12 @@ public class Human {
 		this.imageView = new ImageView(context);
 	}
 
-	public void setMan(Context context) {
+	public void setMan() {
 		this.imageView.setImageResource(R.drawable.bule);
 		this.isMan = true;
 	}
 
-	public void setWoman(Context context) {
+	public void setWoman() {
 		this.imageView.setImageResource(R.drawable.pink);
 		this.isMan = false;
 	}

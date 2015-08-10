@@ -24,6 +24,13 @@
         android:layout_height="fill_parent"
         android:layout_weight="1"
         android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:src="@drawable/table_4" />
+
     </LinearLayout>
 
     <LinearLayout

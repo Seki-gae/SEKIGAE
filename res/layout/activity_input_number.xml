@@ -65,6 +65,7 @@
         android:layout_marginBottom="15dp"
         android:layout_toLeftOf="@+id/textView1"
         android:text="男の子"
+        android:textColor="#0000FF"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -75,6 +76,10 @@
         android:layout_alignBottom="@+id/textView3"
         android:layout_alignLeft="@+id/NumberPicker01"
         android:text="女の子"
+        android:textColor="#FF0000"	
         android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+
+    
 
 </RelativeLayout>

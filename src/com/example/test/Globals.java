@@ -9,7 +9,7 @@ public class Globals extends Application {
 	ArrayList<String> nameList = new ArrayList<>();
 	int m_member_num;
 	int w_member_num;
-	ArrayList<Boolean> isManList = new ArrayList<>();
+	ArrayList<Member> memberList = new ArrayList<>();
 
 	/**
 	 * global変数を初期化します

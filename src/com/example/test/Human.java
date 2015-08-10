@@ -1,14 +1,12 @@
 package com.example.test;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.test.IsolatedContext;
 import android.view.View;
 import android.widget.ImageView;
 
 public class Human {
 	private ImageView imageView;
-	private Boolean isMan = false;
+	public Boolean isMan;
 
 	public Human(Context context) {
 		// TODO Auto-generated constructor stub
@@ -26,12 +24,12 @@ public class Human {
 		});
 	}
 	public void setMan() {
-		this.imageView.setImageResource(R.drawable.bule);
+		this.imageView.setImageResource(R.drawable.chair_m);
 		this.isMan = true;
 	}
 
 	public void setWoman() {
-		this.imageView.setImageResource(R.drawable.pink);
+		this.imageView.setImageResource(R.drawable.chair_w);
 		this.isMan = false;
 	}
 

@@ -41,6 +41,7 @@ public class StartActivity extends Activity implements OnClickListener{
        numberpicker2.setValue(INITIAL_VALUE);
 	}
 	
+	
 	@Override
 	public void onClick(View v){
 		// グローバル変数に値を入れる

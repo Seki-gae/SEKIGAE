@@ -10,41 +10,19 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.test.MainActivity" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/name" />
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/gender" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <RadioButton
-            android:id="@+id/radioButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="男性" />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="女性" />
-
     </LinearLayout>
+    
+      <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/spnPrompt"
+        android:entries="@array/spnEntries"
+        />
 
     <Button
         android:id="@+id/button1"

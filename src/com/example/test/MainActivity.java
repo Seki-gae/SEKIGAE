@@ -41,7 +41,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			// 初期化
 			this.globals.GlobalsAllInit();
 		}
-		this.editText = (EditText) findViewById(R.id.editText1);
 		this.button = (Button) findViewById(R.id.button1);
 		this.button.setOnClickListener(this);
 	}

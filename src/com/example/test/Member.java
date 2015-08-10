@@ -3,7 +3,7 @@ package com.example.test;
 public class Member {
 	private String name;
 	private String gender;
-	private String like;
+	private Member like;
 	private int liked;
 	
 	public String getName() {
@@ -19,10 +19,10 @@ public class Member {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getLike() {
+	public Member getLike() {
 		return like;
 	}
-	public void setLike(String like) {
+	public void setLike(Member like) {
 		this.like = like;
 	}
 	public int getLiked() {

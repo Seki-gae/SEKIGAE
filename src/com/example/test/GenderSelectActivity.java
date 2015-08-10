@@ -17,7 +17,7 @@ import android.widget.TextView;
  * @author kawabata
  *
  */
-public class SexActivity extends Activity implements OnClickListener {
+public class GenderSelectActivity extends Activity implements OnClickListener {
 	// グローバル変数
 	Globals globals;
 	// ボタン

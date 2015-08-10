@@ -45,25 +45,26 @@ public class GenderSelectActivity extends Activity implements OnClickListener {
 		this.num = intent.getIntExtra("NUM", -1);
 		// グローバル変数を取得
 		this.globals = (Globals) this.getApplication();
-		//レイアウトの読み込み
-		left = (LinearLayout) findViewById(R.id.LinearLayout_left);
-		right = (LinearLayout) findViewById(R.id.LinearLayout_right);
+		// レイアウトの読み込み
+		this.left = (LinearLayout) findViewById(R.id.LinearLayout_left);
+		this.right = (LinearLayout) findViewById(R.id.LinearLayout_right);
+		MAN_NUM = this.globals.m_member_num;
+		WOMAN_NUM = this.globals.w_member_num;
 
 		// イメージビューの作成
 		for (int i = 0; i < MAN_NUM; i++) {
 			Human human = new Human(this);
 			human.setMan();
-			leftImages.add(new Human(this));
-			left.addView(human.getImageView());
+			this.leftImages.add(new Human(this));
+			this.left.addView(human.getImageView());
 		}
 		// イメージビューの作成
 		for (int i = 0; i < WOMAN_NUM; i++) {
 			Human human = new Human(this);
 			human.setWoman();
-			rightImages.add(new Human(this));
-			right.addView(human.getImageView());
+			this.rightImages.add(new Human(this));
+			this.right.addView(human.getImageView());
 		}
-		
 	}
 
 	@Override

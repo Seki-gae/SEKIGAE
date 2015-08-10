@@ -7,8 +7,8 @@ import android.app.Application;
 public class Globals extends Application {
 	// グローバルに使用する変数
 	ArrayList<String> nameList = new ArrayList<>();
-	ArrayList<Integer> m_member_num = new ArrayList<>();
-	ArrayList<Integer> w_member_num = new ArrayList<>();
+	int m_member_num;
+	int w_member_num;
 	ArrayList<Boolean> isManList = new ArrayList<>();
 
 	/**

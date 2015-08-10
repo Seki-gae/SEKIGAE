@@ -42,6 +42,7 @@ public class StartActivity extends Activity implements OnClickListener{
 	}
 	
 	
+	
 	@Override
 	public void onClick(View v){
 		// グローバル変数に値を入れる

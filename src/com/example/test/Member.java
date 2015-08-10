@@ -1,9 +1,17 @@
 package com.example.test;
 
 public class Member {
+	private String name;
 	private String gender;
 	private String like;
 	private int liked;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 	public String getGender() {
 		return gender;

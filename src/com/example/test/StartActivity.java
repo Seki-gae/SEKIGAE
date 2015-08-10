@@ -6,12 +6,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
 
-public class StartActivity extends Activity{
+public class StartActivity extends Activity implements OnClickListener{
 	
 	private Globals globals;
 	private NumberPicker numberpicker1;
@@ -25,12 +26,14 @@ public class StartActivity extends Activity{
 		
 		//グローバル変数を取得
         this.globals = (Globals) this.getApplication();
-        TextView textView = (TextView) findViewById(R.id.textView2);
-		this.button = (Button) findViewById(R.id.button1);	
+        TextView textView = (TextView) findViewById(R.id.textView2);	
 		this.numberpicker1 = (NumberPicker) findViewById(R.id.numberPicker1);
 		this.numberpicker2 = (NumberPicker) findViewById(R.id.NumberPicker01);
+		this.button = (Button) findViewById(R.id.button1);
+		this.button.setOnClickListener(this);
 	}
 	
+	@Override
 	public void onClick(View v){
 		// グローバル変数に値を入れる
 		StartActivity.this.globals.m_member_num.add(StartActivity.this.numberpicker1

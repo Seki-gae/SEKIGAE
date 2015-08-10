@@ -3,16 +3,22 @@ package com.example.test;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Matrix;
 import android.os.Bundle;
+import android.view.Display;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Space;
 import android.widget.TextView;
 
 /**
@@ -37,6 +43,7 @@ public class GenderSelectActivity extends Activity implements OnClickListener {
 	public static int MAN_NUM = 3;
 	public static int WOMAN_NUM = 3;
 
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		System.out.println("ACTIVITY ONCLEATE"); //$NON-NLS-1$
@@ -51,11 +58,17 @@ public class GenderSelectActivity extends Activity implements OnClickListener {
 		this.globals = (Globals) this.getApplication();
 		// レイアウトの読み込み
 		this.left = (LinearLayout) findViewById(R.id.LinearLayout_left);
+		this.left.setGravity(Gravity.CENTER);
 		this.right = (LinearLayout) findViewById(R.id.LinearLayout_right);
+		this.right.setGravity(Gravity.CENTER);
+		
 		MAN_NUM = this.globals.m_member_num;
 		WOMAN_NUM = this.globals.w_member_num;
+
+		WindowManager wm = getWindowManager();
+		Display disp = wm.getDefaultDisplay();
 		LinearLayout.LayoutParams param1 = new LinearLayout.LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+				disp.getHeight() / 8, LayoutParams.FILL_PARENT);
 		param1.weight = 1.0f;
 		// イメージビューの作成
 		for (int i = 0; i < MAN_NUM; i++) {
@@ -114,10 +127,10 @@ public class GenderSelectActivity extends Activity implements OnClickListener {
 			}
 			this.globals.memberList.add(member);
 		}
-		
-//		for (Member member : this.globals.memberList) {
-//			System.out.println(member.getGender() + member.getName());
-//		}
+
+		// for (Member member : this.globals.memberList) {
+		// System.out.println(member.getGender() + member.getName());
+		// }
 		Intent intent;
 		intent = new Intent(GenderSelectActivity.this, MainActivity.class);
 		// アクティビティの起動

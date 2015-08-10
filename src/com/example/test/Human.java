@@ -3,6 +3,7 @@ package com.example.test;
 import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 
 public class Human {
 	private ImageView imageView;
@@ -11,6 +12,7 @@ public class Human {
 	public Human(Context context) {
 		// TODO Auto-generated constructor stub
 		this.imageView = new ImageView(context);
+		this.imageView.setScaleType(ScaleType.FIT_CENTER);
 		this.imageView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {

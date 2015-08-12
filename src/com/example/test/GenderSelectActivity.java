@@ -5,6 +5,8 @@ import java.util.HashMap;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Matrix;
 import android.os.Bundle;
@@ -90,6 +92,7 @@ public class GenderSelectActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
+		
 		this.alList.add("A");
 		this.alList.add("B");
 		this.alList.add("C");
@@ -127,14 +130,33 @@ public class GenderSelectActivity extends Activity implements OnClickListener {
 			}
 			this.globals.memberList.add(member);
 		}
+		
+		if(mCount == this.MAN_NUM && wCount == this.WOMAN_NUM){
+			// for (Member member : this.globals.memberList) {
+			// System.out.println(member.getGender() + member.getName());
+			// }
+			Intent intent;
+			intent = new Intent(GenderSelectActivity.this, MainActivity.class);
+			// アクティビティの起動
+			startActivity(intent);
+		}else{
+			this.globals.memberList.clear();
+	        // 確認ダイアログの生成
+	        AlertDialog.Builder alertDlg = new AlertDialog.Builder(this);
+	        alertDlg.setTitle("男女比がおかしいです！");
+	        alertDlg.setMessage("最初に入力された男女比と一致しません。選択をやり直してください。");
+	        alertDlg.setPositiveButton(
+	            "OK",
+	            new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface dialog, int which) {
+	                    // OK ボタンクリック処理
+	                }
+	            });
+	        // 表示
+	        alertDlg.create().show();
+		}
 
-		// for (Member member : this.globals.memberList) {
-		// System.out.println(member.getGender() + member.getName());
-		// }
-		Intent intent;
-		intent = new Intent(GenderSelectActivity.this, MainActivity.class);
-		// アクティビティの起動
-		startActivity(intent);
+
 
 	}
 

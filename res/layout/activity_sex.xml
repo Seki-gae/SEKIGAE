@@ -48,11 +48,13 @@
         </LinearLayout>
         
     </LinearLayout>
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="7"
-        android:src="@drawable/kettei" />
+        android:layout_gravity="bottom"
+        android:src="@drawable/kettei2" />
     
 </LinearLayout>

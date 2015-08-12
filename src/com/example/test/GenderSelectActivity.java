@@ -36,6 +36,7 @@ public class GenderSelectActivity extends Activity implements OnClickListener {
 	LinearLayout left;
 	LinearLayout right;
 	ImageView buttonImage;
+	int MEMBER_NUM;
 	private ArrayList<Human> leftImages = new ArrayList<>();
 	private ArrayList<Human> rightImages = new ArrayList<>();
 	private int num;
@@ -62,9 +63,10 @@ public class GenderSelectActivity extends Activity implements OnClickListener {
 		this.left.setGravity(Gravity.CENTER);
 		this.right = (LinearLayout) findViewById(R.id.LinearLayout_right);
 		this.right.setGravity(Gravity.CENTER);
-		
+
 		MAN_NUM = this.globals.m_member_num;
 		WOMAN_NUM = this.globals.w_member_num;
+		
 
 		WindowManager wm = getWindowManager();
 		Display disp = wm.getDefaultDisplay();
@@ -91,7 +93,7 @@ public class GenderSelectActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		
+
 		this.alList.add("a");
 		this.alList.add("b");
 		this.alList.add("c");
@@ -100,7 +102,7 @@ public class GenderSelectActivity extends Activity implements OnClickListener {
 		this.alList.add("f");
 		this.alList.add("g");
 		this.alList.add("h");
-
+		this.globals.memberList.clear();
 		int mCount = 0, wCount = 0;
 		// イメージビューの作成
 		for (Human human : leftImages) {
@@ -129,33 +131,30 @@ public class GenderSelectActivity extends Activity implements OnClickListener {
 			}
 			this.globals.memberList.add(member);
 		}
-		
-		if(mCount == this.MAN_NUM && wCount == this.WOMAN_NUM){
+
+		if (mCount == this.MAN_NUM && wCount == this.WOMAN_NUM) {
 			// for (Member member : this.globals.memberList) {
 			// System.out.println(member.getGender() + member.getName());
 			// }
 			Intent intent;
-			intent = new Intent(GenderSelectActivity.this, LikeSelectActivity.class);
+			intent = new Intent(GenderSelectActivity.this,
+					LikeSelectActivity.class);
 			// アクティビティの起動
 			startActivity(intent);
-		}else{
-			this.globals.memberList.clear();
-	        // 確認ダイアログの生成
-	        AlertDialog.Builder alertDlg = new AlertDialog.Builder(this);
-	        alertDlg.setTitle("男女比がおかしいです！");
-	        alertDlg.setMessage("最初に入力された男女比と一致しません。選択をやり直してください。");
-	        alertDlg.setPositiveButton(
-	            "OK",
-	            new DialogInterface.OnClickListener() {
-	                public void onClick(DialogInterface dialog, int which) {
-	                    // OK ボタンクリック処理
-	                }
-	            });
-	        // 表示
-	        alertDlg.create().show();
+		} else {
+			// 確認ダイアログの生成
+			AlertDialog.Builder alertDlg = new AlertDialog.Builder(this);
+			alertDlg.setTitle("男女比がおかしいです！");
+			alertDlg.setMessage("最初に入力された男女比と一致しません。選択をやり直してください。");
+			alertDlg.setPositiveButton("OK",
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							// OK ボタンクリック処理
+						}
+					});
+			// 表示
+			alertDlg.create().show();
 		}
-
-
 
 	}
 

@@ -1,33 +1,26 @@
 package com.example.test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Matrix;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Space;
-import android.widget.TextView;
 
 /**
  * @author kawabata
  *
  */
-public class LikeSelectActivity extends Activity implements OnClickListener {
+public class LikeSelectActivity extends Activity implements OnSelectListner {
 	// グローバル変数
 	Globals globals;
 	// ボタン
@@ -40,7 +33,8 @@ public class LikeSelectActivity extends Activity implements OnClickListener {
 	private ArrayList<Selector> rightImages = new ArrayList<>();
 	private int num;
 	private ArrayList<String> alList = new ArrayList<>();
-
+	public int MEMBER_NUM;
+	private Member selectMember;
 	public static int MAN_NUM = 3;
 	public static int WOMAN_NUM = 3;
 	public static int LEFT_NUM = 3;
@@ -57,6 +51,9 @@ public class LikeSelectActivity extends Activity implements OnClickListener {
 		Intent intent = getIntent();
 		// インテントに保存されたデータを取得
 		this.num = intent.getIntExtra("NUM", -1);
+		if (this.num == -1) {
+			this.num = 1;
+		}
 		// グローバル変数を取得
 		this.globals = (Globals) this.getApplication();
 		// レイアウトの読み込み
@@ -64,76 +61,72 @@ public class LikeSelectActivity extends Activity implements OnClickListener {
 		this.left.setGravity(Gravity.CENTER);
 		this.right = (LinearLayout) findViewById(R.id.LinearLayout_right_select);
 		this.right.setGravity(Gravity.CENTER);
-		
+
 		MAN_NUM = this.globals.m_member_num;
 		WOMAN_NUM = this.globals.w_member_num;
-		LEFT_NUM= MAN_NUM;
+		LEFT_NUM = MAN_NUM;
 		RIGHT_NUM = WOMAN_NUM;
-		this.num = 1;
+		this.MEMBER_NUM = this.globals.m_member_num + this.globals.w_member_num;
+		this.selectMember = this.globals.memberList.get(this.num-1);
 		WindowManager wm = getWindowManager();
 		Display disp = wm.getDefaultDisplay();
 		LinearLayout.LayoutParams param1 = new LinearLayout.LayoutParams(
-				disp.getHeight() / 9, LayoutParams.FILL_PARENT);
+				disp.getHeight() / 6, disp.getHeight() / 6);
 		param1.weight = 1.0f;
+		int count=0;
 		// イメージビューの作成
 		for (int i = 0; i < LEFT_NUM; i++) {
 			System.out.println("leftSet");
 			Selector selector = new Selector(this);
-			selector.setMember(this.globals.memberList.get(i));
-			if(num-1 == i) selector.setSelector();
+			selector.setListner(this);
+			selector.setSelectorGender(this.selectMember.getGender());
+			
+			if (this.num - 1 == i)
+				selector.setSelector();
+			selector.setMember(this.globals.memberList.get(count));
 			this.leftImages.add(selector);
 			this.left.addView(selector.getImageView(), param1);
+			count++;
 		}
 		// イメージビューの作成
 		for (int i = 0; i < RIGHT_NUM; i++) {
 			Selector selector = new Selector(this);
-			selector.setMember(this.globals.memberList.get(i));
-			if(num-1 == i) selector.setSelector();
+			selector.setListner(this);
+			selector.setSelectorGender(this.selectMember.getGender());
+			if (this.num - 1 == count)
+				selector.setSelector();
+			selector.setMember(this.globals.memberList.get(count));
 			this.rightImages.add(selector);
 			this.right.addView(selector.getImageView(), param1);
+			count++;
 		}
 	}
+
 
 	@Override
-	public void onClick(View v) {
+	public boolean onTouchListner(Member member) {
+		int i = this.globals.memberList.indexOf(member);
+		this.selectMember.setLike(this.globals.memberList.get(i));
 		
-		this.alList.add("A");
-		this.alList.add("B");
-		this.alList.add("C");
-		this.alList.add("D");
-		this.alList.add("E");
-		this.alList.add("F");
-		this.alList.add("G");
-		this.alList.add("H");
-
-		int mCount = 0, wCount = 0;		
-		if(mCount == this.MAN_NUM && wCount == this.WOMAN_NUM){
-			// for (Member member : this.globals.memberList) {
-			// System.out.println(member.getGender() + member.getName());
-			// }
-			Intent intent;
-			intent = new Intent(LikeSelectActivity.this, MainActivity.class);
-			// アクティビティの起動
-			startActivity(intent);
-		}else{
-			this.globals.memberList.clear();
-	        // 確認ダイアログの生成
-	        AlertDialog.Builder alertDlg = new AlertDialog.Builder(this);
-	        alertDlg.setTitle("男女比がおかしいです！");
-	        alertDlg.setMessage("最初に入力された男女比と一致しません。選択をやり直してください。");
-	        alertDlg.setPositiveButton(
-	            "OK",
-	            new DialogInterface.OnClickListener() {
-	                public void onClick(DialogInterface dialog, int which) {
-	                    // OK ボタンクリック処理
-	                }
-	            });
-	        // 表示
-	        alertDlg.create().show();
+		Intent intent;
+		if (this.MEMBER_NUM - this.num != 0) {
+			intent = new Intent(LikeSelectActivity.this, LikeSelectActivity.class);
+			intent.putExtra("NUM", this.num + 1);
+		} else {
+			intent = new Intent(LikeSelectActivity.this, NextActivity.class);
 		}
-
-
-
+		// アクティビティの起動
+		startActivity(intent);
+		return true;
 	}
+
+
+	@Override
+	public boolean onTouch(View v, MotionEvent event) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	
 
 }

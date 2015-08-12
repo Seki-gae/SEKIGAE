@@ -57,8 +57,8 @@ public class Member {
 	public boolean equals(Object o) {
 		Member member = (Member) o;
 		// TODO Auto-generated method stub
-		if(member.getName().equals(this.getName())){
-				//&& member.getGender().equals(this.getGender())){
+		if(member.getName().equals(this.getName())
+				&& member.getGender().equals(this.getGender())){
 			return true;
 		}
 		else{

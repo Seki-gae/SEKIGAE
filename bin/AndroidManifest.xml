@@ -35,6 +35,10 @@
             android:name="com.example.test.GenderSelectActivity"
             android:label="@string/title_activity_main" >
         </activity>
+        <activity
+            android:name="com.example.test.LikeSelectActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
     </application>
 
 </manifest>

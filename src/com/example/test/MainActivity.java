@@ -36,8 +36,17 @@ public class MainActivity extends Activity implements OnClickListener {
 		this.num = intent.getIntExtra("NUM", -1);
 		// グローバル変数を取得
 		this.globals = (Globals) this.getApplication();
+		//　合計人数を計算
 		MEMBER_NUM =this.globals.m_member_num + this.globals.w_member_num;
-
+		
+		// 選択者の性別を判定
+//		Member selectMember = this.globals.memberList.get(num-1);
+//		if (selectMember.getGender()=="man"){
+//			
+//		}else{
+//			
+//		}
+		
 		if (this.num == -1) {
 			this.num = 1;
 			// 初期化
@@ -54,32 +63,15 @@ public class MainActivity extends Activity implements OnClickListener {
         Spinner spinner = (Spinner)findViewById(R.id.spinner);
 		// 選択された値を取得
 		String likeName = (String)spinner.getSelectedItem();
-		//10人分のメンバインスタンス生成。
-//		Member mA = new Member();
-//		Member mB = new Member();
-//		Member mC = new Member();
-//		Member mD = new Member();
-//		Member mE = new Member();
-//		Member wA = new Member();
-//		Member wB = new Member();
-//		Member wC = new Member();
-//		Member wD = new Member();
-//		Member wE = new Member();
-//		
+		// 名前と性別が一致する人を検索
 		Member lefsMember = new Member(likeName);
-//		lefsMember.setGender(gender);
+        //lefsMember.setGender();
 		Member selectMember = this.globals.memberList.get(num-1);
 		int i = this.globals.memberList.indexOf(lefsMember);
-		//男Aは女Cが気になる。ときの処理
 		selectMember.setLike(globals.memberList.get(i));
-//		this.globals.memberList.add(mA);
-		//mapにメンバ情報を代入。
-		//map.put("mA",);
-		//mapから読み込み
-		//map.get("mA");
 		// インテントの生成
 		Intent intent;
-		if (this.MEMBER_NUM - this.num != 1) {
+		if (this.MEMBER_NUM - this.num != 0) {
 			intent = new Intent(MainActivity.this, MainActivity.class);
 			intent.putExtra("NUM", this.num + 1);
 		} else {

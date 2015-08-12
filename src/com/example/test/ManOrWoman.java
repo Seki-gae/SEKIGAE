@@ -44,6 +44,7 @@ public class ManOrWoman {
 	
 	
 
+	
 	/*public void setMan() {
 		this.imageView.setImageResource(R.drawable.chair_m);
 		this.isMan = true;

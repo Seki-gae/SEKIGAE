@@ -18,8 +18,8 @@ public class NextActivity extends Activity {
         this.globals = (Globals) this.getApplication();
         TextView textView = (TextView) findViewById(R.id.textView1);
         String memberList = "" ;
-        for (String name : this.globals.nameList) {
-			memberList += "○　"+ name + " . \n"; 
+        for (Member member : this.globals.memberList) {
+			memberList += member.getName() + ":" + member.getLike()+ member.getLiked() +member.getGender()+member.getSit()+ "\n"; 
 		}
         textView.setText(memberList);
 	}

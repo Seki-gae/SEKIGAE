@@ -52,5 +52,19 @@ public class Member {
 	public void setSit(int sit) {
 		this.sit = sit;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		Member member = (Member) o;
+		// TODO Auto-generated method stub
+		if(member.getName().equals(this.getName())){
+				//&& member.getGender().equals(this.getGender())){
+			return true;
+		}
+		else{
+			return false;
+		}
+		//return super.equals(o);
+	}
 
 }

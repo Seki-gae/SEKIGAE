@@ -16,7 +16,7 @@
         android:background="@drawable/message2"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_weight="6" />
+        android:layout_weight="8" />
 
     <LinearLayout
         android:id="@+id/LinearLayout_main"

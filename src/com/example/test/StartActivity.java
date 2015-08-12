@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
@@ -14,7 +15,7 @@ public class StartActivity extends Activity implements OnClickListener {
 	private Globals globals;
 	private NumberPicker numberpicker1;
 	private NumberPicker numberpicker2;
-	private Button button;
+	private ImageView imageView;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		System.out.println("ACTIVITY ONCLEATE"); //$NON-NLS-1$
@@ -25,8 +26,8 @@ public class StartActivity extends Activity implements OnClickListener {
 		this.globals = (Globals) this.getApplication();
 		this.numberpicker1 = (NumberPicker) findViewById(R.id.numberPicker1);
 		this.numberpicker2 = (NumberPicker) findViewById(R.id.NumberPicker01);
-		this.button = (Button) findViewById(R.id.button1);
-		this.button.setOnClickListener(this);
+		this.imageView = (ImageView) findViewById(R.id.imageView3);
+		this.imageView.setOnClickListener(this);
 		// 設定できる上限、下限を設定する
 		this.numberpicker1.setMaxValue(5);
 		this.numberpicker1.setMinValue(3);

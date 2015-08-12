@@ -52,6 +52,7 @@ public class ResultActivity extends Activity implements OnClickListener{
 		this.right = (LinearLayout) findViewById(R.id.LinearLayout_right_result1);//親Viewを取得してremoveView実行
 		
 		
+		
 		ViewGroup parent = (ViewGroup)left.getParent(); 
 		if ( parent != null ) {
 		    parent.removeView(left);

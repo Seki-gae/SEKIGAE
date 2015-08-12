@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/back" >
 
     <TextView
         android:id="@+id/textView1"
@@ -41,22 +42,6 @@
         android:text="人"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <NumberPicker
-        android:id="@+id/numberPicker1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/button1" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
-        android:text="決定" />
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -65,8 +50,8 @@
         android:layout_marginBottom="15dp"
         android:layout_toLeftOf="@+id/textView1"
         android:text="男の子"
-        android:textColor="#0000FF"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#0000FF" />
 
     <TextView
         android:id="@+id/TextView02"
@@ -76,10 +61,23 @@
         android:layout_alignBottom="@+id/textView3"
         android:layout_alignLeft="@+id/NumberPicker01"
         android:text="女の子"
-        android:textColor="#FF0000"	
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-    
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FF0000" />
 
-    
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="34dp"
+        android:text="決定" />
+
+    <NumberPicker
+        android:id="@+id/numberPicker1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_alignLeft="@+id/textView2" />
 
 </RelativeLayout>

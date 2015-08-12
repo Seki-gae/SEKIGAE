@@ -32,7 +32,7 @@
             android:label="@string/title_activity_main" >
         </activity>
         <activity
-            android:name="com.example.test.SexActivity"
+            android:name="com.example.test.GenderSelectActivity"
             android:label="@string/title_activity_main" >
         </activity>
     </application>

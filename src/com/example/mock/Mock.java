@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import com.example.test.Member;
 
 public class Mock {
-	public static ArrayList<Member> getLeftMembers(){
-		
+	public static ArrayList<Member> getLeftMembers() {
+
 		Member memberA = new Member();
 		Member memberB = new Member();
 		Member memberC = new Member();
@@ -19,17 +19,17 @@ public class Mock {
 		memberB.setName("A");
 		memberC.setName("B");
 		memberD.setName("B");
-		
+
 		ArrayList<Member> members = new ArrayList<>();
 		members.add(memberA);
 		members.add(memberB);
 		members.add(memberC);
 		members.add(memberD);
-		return null;
+		return members;
 	}
-	
-	public static ArrayList<Member> getRightMembers(){
-		
+
+	public static ArrayList<Member> getRightMembers() {
+
 		Member memberA = new Member();
 		Member memberB = new Member();
 		Member memberC = new Member();
@@ -42,12 +42,18 @@ public class Mock {
 		memberB.setName("C");
 		memberC.setName("D");
 		memberD.setName("D");
-		
+
 		ArrayList<Member> members = new ArrayList<>();
 		members.add(memberA);
 		members.add(memberB);
 		members.add(memberC);
 		members.add(memberD);
-		return null;
+		return members;
+	}
+
+	public static ArrayList<Member> getAllMembers() {
+		ArrayList<Member> members = getLeftMembers();
+		members.addAll(getRightMembers());
+		return members;
 	}
 }

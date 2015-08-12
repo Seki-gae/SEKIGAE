@@ -92,14 +92,14 @@ public class GenderSelectActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		
-		this.alList.add("A");
-		this.alList.add("B");
-		this.alList.add("C");
-		this.alList.add("D");
-		this.alList.add("E");
-		this.alList.add("F");
-		this.alList.add("G");
-		this.alList.add("H");
+		this.alList.add("a");
+		this.alList.add("b");
+		this.alList.add("c");
+		this.alList.add("d");
+		this.alList.add("e");
+		this.alList.add("f");
+		this.alList.add("g");
+		this.alList.add("h");
 
 		int mCount = 0, wCount = 0;
 		// イメージビューの作成
@@ -135,7 +135,7 @@ public class GenderSelectActivity extends Activity implements OnClickListener {
 			// System.out.println(member.getGender() + member.getName());
 			// }
 			Intent intent;
-			intent = new Intent(GenderSelectActivity.this, MainActivity.class);
+			intent = new Intent(GenderSelectActivity.this, LikeSelectActivity.class);
 			// アクティビティの起動
 			startActivity(intent);
 		}else{

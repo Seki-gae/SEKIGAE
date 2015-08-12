@@ -36,13 +36,15 @@ public class LikeSelectActivity extends Activity implements OnClickListener {
 	LinearLayout left;
 	LinearLayout right;
 	ImageView buttonImage;
-	private ArrayList<Human> leftImages = new ArrayList<>();
-	private ArrayList<Human> rightImages = new ArrayList<>();
+	private ArrayList<Selector> leftImages = new ArrayList<>();
+	private ArrayList<Selector> rightImages = new ArrayList<>();
 	private int num;
 	private ArrayList<String> alList = new ArrayList<>();
 
 	public static int MAN_NUM = 3;
 	public static int WOMAN_NUM = 3;
+	public static int LEFT_NUM = 3;
+	public static int RIGHT_NUM = 3;
 
 	@SuppressLint("NewApi")
 	@Override
@@ -65,28 +67,31 @@ public class LikeSelectActivity extends Activity implements OnClickListener {
 		
 		MAN_NUM = this.globals.m_member_num;
 		WOMAN_NUM = this.globals.w_member_num;
-
+		LEFT_NUM= MAN_NUM;
+		RIGHT_NUM = WOMAN_NUM;
+		this.num = 1;
 		WindowManager wm = getWindowManager();
 		Display disp = wm.getDefaultDisplay();
 		LinearLayout.LayoutParams param1 = new LinearLayout.LayoutParams(
 				disp.getHeight() / 9, LayoutParams.FILL_PARENT);
 		param1.weight = 1.0f;
 		// イメージビューの作成
-		for (int i = 0; i < MAN_NUM; i++) {
-			Human human = new Human(this);
-			human.setMan();
-			this.leftImages.add(human);
-			this.left.addView(human.getImageView(), param1);
+		for (int i = 0; i < LEFT_NUM; i++) {
+			System.out.println("leftSet");
+			Selector selector = new Selector(this);
+			selector.setMember(this.globals.memberList.get(i));
+			if(num-1 == i) selector.setSelector();
+			this.leftImages.add(selector);
+			this.left.addView(selector.getImageView(), param1);
 		}
 		// イメージビューの作成
-		for (int i = 0; i < WOMAN_NUM; i++) {
-			Human human = new Human(this);
-			human.setWoman();
-			this.rightImages.add(human);
-			this.right.addView(human.getImageView(), param1);
+		for (int i = 0; i < RIGHT_NUM; i++) {
+			Selector selector = new Selector(this);
+			selector.setMember(this.globals.memberList.get(i));
+			if(num-1 == i) selector.setSelector();
+			this.rightImages.add(selector);
+			this.right.addView(selector.getImageView(), param1);
 		}
-		buttonImage = (ImageView) findViewById(R.id.imageView2);
-		buttonImage.setOnClickListener(this);
 	}
 
 	@Override
@@ -101,35 +106,7 @@ public class LikeSelectActivity extends Activity implements OnClickListener {
 		this.alList.add("G");
 		this.alList.add("H");
 
-		int mCount = 0, wCount = 0;
-		// イメージビューの作成
-		for (Human human : leftImages) {
-			Member member = new Member();
-			if (human.isMan) {
-				member.setGender("man");
-				member.setName(this.alList.get(mCount));
-				mCount++;
-			} else {
-				member.setGender("woman");
-				member.setName(this.alList.get(wCount));
-				wCount++;
-			}
-			this.globals.memberList.add(member);
-		}
-		for (Human human : rightImages) {
-			Member member = new Member();
-			if (human.isMan) {
-				member.setGender("man");
-				member.setName(this.alList.get(mCount));
-				mCount++;
-			} else {
-				member.setGender("woman");
-				member.setName(this.alList.get(wCount));
-				wCount++;
-			}
-			this.globals.memberList.add(member);
-		}
-		
+		int mCount = 0, wCount = 0;		
 		if(mCount == this.MAN_NUM && wCount == this.WOMAN_NUM){
 			// for (Member member : this.globals.memberList) {
 			// System.out.println(member.getGender() + member.getName());

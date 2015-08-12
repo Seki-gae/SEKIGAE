@@ -1,6 +1,7 @@
 package com.example.test;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -21,8 +22,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	Button button;
 	private int num;
 
-	public static int MEMBER_NUM = 4;
-
+	public
+	int MEMBER_NUM ;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		System.out.println("ACTIVITY ONCLEATE"); //$NON-NLS-1$
@@ -35,6 +36,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		this.num = intent.getIntExtra("NUM", -1);
 		// グローバル変数を取得
 		this.globals = (Globals) this.getApplication();
+		MEMBER_NUM =this.globals.m_member_num + this.globals.w_member_num;
+
 		if (this.num == -1) {
 			this.num = 1;
 			// 初期化
@@ -65,7 +68,7 @@ public class MainActivity extends Activity implements OnClickListener {
 //		
 		Member lefsMember = new Member(likeName);
 //		lefsMember.setGender(gender);
-		Member selectMember = this.globals.memberList.get(num);
+		Member selectMember = this.globals.memberList.get(num-1);
 		int i = this.globals.memberList.indexOf(lefsMember);
 		//男Aは女Cが気になる。ときの処理
 		selectMember.setLike(globals.memberList.get(i));
@@ -76,7 +79,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		//map.get("mA");
 		// インテントの生成
 		Intent intent;
-		if (this.MEMBER_NUM - this.num != 0) {
+		if (this.MEMBER_NUM - this.num != 1) {
 			intent = new Intent(MainActivity.this, MainActivity.class);
 			intent.putExtra("NUM", this.num + 1);
 		} else {

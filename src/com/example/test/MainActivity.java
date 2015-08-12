@@ -21,7 +21,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	Button button;
 	private int num;
 
-	public static int MEMBER_NUM = 1;
+	public static int MEMBER_NUM = 4;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,28 +52,28 @@ public class MainActivity extends Activity implements OnClickListener {
 		// 選択された値を取得
 		String likeName = (String)spinner.getSelectedItem();
 		//10人分のメンバインスタンス生成。
-		Member mA = new Member();
-		Member mB = new Member();
-		Member mC = new Member();
-		Member mD = new Member();
-		Member mE = new Member();
-		Member wA = new Member();
-		Member wB = new Member();
-		Member wC = new Member();
-		Member wD = new Member();
-		Member wE = new Member();
-		
+//		Member mA = new Member();
+//		Member mB = new Member();
+//		Member mC = new Member();
+//		Member mD = new Member();
+//		Member mE = new Member();
+//		Member wA = new Member();
+//		Member wB = new Member();
+//		Member wC = new Member();
+//		Member wD = new Member();
+//		Member wE = new Member();
+//		
 		Member lefsMember = new Member(likeName);
 //		lefsMember.setGender(gender);
+		Member selectMember = this.globals.memberList.get(num);
 		int i = this.globals.memberList.indexOf(lefsMember);
 		//男Aは女Cが気になる。ときの処理
-		mA.setLike(globals.memberList.get(i));
-		System.out.println(mA.getLike());
+		selectMember.setLike(globals.memberList.get(i));
+//		this.globals.memberList.add(mA);
 		//mapにメンバ情報を代入。
 		//map.put("mA",);
 		//mapから読み込み
 		//map.get("mA");
-		//System.out.println(mA.getLike());
 		// インテントの生成
 		Intent intent;
 		if (this.MEMBER_NUM - this.num != 0) {

@@ -12,8 +12,10 @@ public class ShuffleActivity extends Activity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-
-		this.imageView = (ImageView) findViewById(R.id.button1);
+		super.onCreate(savedInstanceState);
+		// レイアウト定義
+		setContentView(R.layout.activity_shuffle);
+		this.imageView = (ImageView) findViewById(R.id.imageViewShuffle);
 		this.imageView.setOnClickListener(this);
 	}
 

@@ -28,7 +28,7 @@
             android:label="@string/title_activity_main" >
         </activity>
         <activity
-            android:name="com.example.test.NextActivity"
+            android:name="com.example.test.ShuffleActivity"
             android:label="@string/title_activity_main" >
         </activity>
         <activity

@@ -119,7 +119,7 @@ public class LikeSelectActivity extends Activity implements OnSelectListner {
 			changeSeat.doChange();
 			this.globals.leftList=changeSeat.getLeftSeat();
 			this.globals.rightList=changeSeat.getRightSeat();
-			intent = new Intent(LikeSelectActivity.this, ResultActivity.class);
+			intent = new Intent(LikeSelectActivity.this, ShuffleActivity.class);
 			//intent = new Intent(LikeSelectActivity.this, NextActivity.class);
 		}
 		// アクティビティの起動

@@ -387,16 +387,49 @@ public class ChangeSeat {
 	}
 	
 	void setMemberList(ArrayList<Member> memberList){
-		mA = memberList.get(0);
-		mB = memberList.get(1);
-		mC = memberList.get(2);
-		mD = memberList.get(3);
-		mE = memberList.get(4);
-		wA = memberList.get(5);
-		wB = memberList.get(6);
-		wC = memberList.get(7);
-		wD = memberList.get(8);
-		wE = memberList.get(9);
+		Member MA = new Member("a");
+		Member MB = new Member("b");
+		Member MC = new Member("c");
+		Member MD = new Member("d");
+		Member ME = new Member("e");
+		Member WA = new Member("a");
+		Member WB = new Member("b");
+		Member WC = new Member("c");
+		Member WD = new Member("d");
+		Member WE = new Member("e");
+		MA.setGender("man");
+		MB.setGender("man");
+		MC.setGender("man");
+		MD.setGender("man");
+		ME.setGender("man");
+		WA.setGender("woman");
+		WB.setGender("woman");
+		WC.setGender("woman");
+		WD.setGender("woman");
+		WE.setGender("woman");
+
+		for (Member member : memberList) {
+			if(MA.equals(member)) mA = member;
+			if(MB.equals(member)) mB = member;
+			if(MC.equals(member)) mC = member;
+			if(MD.equals(member)) mD = member;
+			if(ME.equals(member)) mE = member;
+			if(WA.equals(member)) wA = member;
+			if(WB.equals(member)) wB = member;
+			if(WC.equals(member)) wC = member;
+			if(WD.equals(member)) wD = member;
+			if(WE.equals(member)) wE = member;
+		}
+//		mA = memberList.get(0);
+//		mB = memberList.get(1);
+//		mC = memberList.get(2);
+//		mD = memberList.get(3);
+//		mE = memberList.get(4);
+//		wA = memberList.get(5);
+//		wB = memberList.get(6);
+//		wC = memberList.get(7);
+//		wD = memberList.get(8);
+//		wE = memberList.get(9);
 	}
 	
 	ArrayList<Member> getLeftSeat(){

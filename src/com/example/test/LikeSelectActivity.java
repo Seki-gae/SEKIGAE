@@ -113,7 +113,14 @@ public class LikeSelectActivity extends Activity implements OnSelectListner {
 			intent = new Intent(LikeSelectActivity.this, LikeSelectActivity.class);
 			intent.putExtra("NUM", this.num + 1);
 		} else {
-			intent = new Intent(LikeSelectActivity.this, NextActivity.class);
+			ChangeSeat changeSeat = new ChangeSeat();
+			changeSeat.setMemberList(this.globals.memberList);
+			changeSeat.setMemberNum(this.globals.m_member_num, this.globals.w_member_num);
+			changeSeat.doChange();
+			this.globals.leftList=changeSeat.getLeftSeat();
+			this.globals.rightList=changeSeat.getRightSeat();
+			intent = new Intent(LikeSelectActivity.this, ResultActivity.class);
+			//intent = new Intent(LikeSelectActivity.this, NextActivity.class);
 		}
 		// アクティビティの起動
 		startActivity(intent);

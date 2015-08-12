@@ -55,9 +55,10 @@ public class ResultActivity extends Activity implements OnClickListener{
 		this.left.setGravity(Gravity.CENTER);
 		this.right.setGravity(Gravity.CENTER);
 	
-		ArrayList<Member> right_array = Mock.getRightMembers();
-		ArrayList<Member> left_array = Mock.getLeftMembers();
-
+//		ArrayList<Member> right_array = Mock.getRightMembers();
+//		ArrayList<Member> left_array = Mock.getLeftMembers();
+		ArrayList<Member> right_array =this.globals.rightList;
+		ArrayList<Member> left_array = this.globals.leftList;
 		
 		WindowManager wm = getWindowManager();
 		Display disp = wm.getDefaultDisplay();

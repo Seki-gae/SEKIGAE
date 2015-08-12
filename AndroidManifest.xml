@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.test.MainActivity"
+            android:name="com.example.test.ResultActivity"
             android:label="@string/title_activity_main" >
         </activity>
         <activity

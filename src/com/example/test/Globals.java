@@ -10,6 +10,8 @@ public class Globals extends Application {
 	int m_member_num;
 	int w_member_num;
 	ArrayList<Member> memberList = new ArrayList<>();
+	ArrayList<Member> rightList = new ArrayList<>();
+	ArrayList<Member> leftList = new ArrayList<>();
 
 	/**
 	 * global変数を初期化します

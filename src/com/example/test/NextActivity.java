@@ -1,6 +1,5 @@
 package com.example.test;
 
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -13,14 +12,25 @@ public class NextActivity extends Activity {
 		System.out.println("ACTIVITY ONCLEATE"); //$NON-NLS-1$
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_next);
-		
-		//グローバル変数を取得
-        this.globals = (Globals) this.getApplication();
-        TextView textView = (TextView) findViewById(R.id.textView1);
-        String memberList = "" ;
-        for (Member member : this.globals.memberList) {
-			memberList += member.getName() + ":" + member.getLike()+ member.getLiked() +member.getGender()+member.getSit()+ "\n"; 
+
+		// グローバル変数を取得
+		this.globals = (Globals) this.getApplication();
+		TextView textView = (TextView) findViewById(R.id.textView1);
+		String memberList = "";
+		for (Member member : this.globals.leftList) {
+			memberList += member.getName() + "\n";// + ":" + member.getLike()+
+													// member.getLiked()
+													// +member.getGender()+member.getSit()+
+													// "\n";
 		}
-        textView.setText(memberList);
+		System.out.println("---------------------------------\n\n\n---------------------------------\n");
+		for (Member member : this.globals.rightList) {
+			memberList += member.getName() + "\n";// + ":" + member.getLike()+
+													// member.getLiked()
+													// +member.getGender()+member.getSit()+
+													// "\n";
+		}
+
+		textView.setText(memberList);
 	}
 }

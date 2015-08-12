@@ -26,12 +26,12 @@ public class Human {
 		});
 	}
 	public void setMan() {
-		this.imageView.setImageResource(R.drawable.chair_m);
+		this.imageView.setImageResource(R.drawable.marum);
 		this.isMan = true;
 	}
 
 	public void setWoman() {
-		this.imageView.setImageResource(R.drawable.chair_w);
+		this.imageView.setImageResource(R.drawable.maruw);
 		this.isMan = false;
 	}
 

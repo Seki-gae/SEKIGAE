@@ -32,7 +32,6 @@ public class GenderSelectActivity extends Activity implements OnClickListener {
 	Globals globals;
 	// ボタン
 	Button button;
-
 	EditText editText;
 	LinearLayout left;
 	LinearLayout right;
@@ -70,7 +69,7 @@ public class GenderSelectActivity extends Activity implements OnClickListener {
 		WindowManager wm = getWindowManager();
 		Display disp = wm.getDefaultDisplay();
 		LinearLayout.LayoutParams param1 = new LinearLayout.LayoutParams(
-				disp.getHeight() / 8, LayoutParams.FILL_PARENT);
+				disp.getHeight() / 9, LayoutParams.FILL_PARENT);
 		param1.weight = 1.0f;
 		// イメージビューの作成
 		for (int i = 0; i < MAN_NUM; i++) {

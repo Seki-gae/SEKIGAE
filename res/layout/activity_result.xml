@@ -11,7 +11,7 @@
     tools:context="com.example.test.MainActivity" >
 
         <LinearLayout
-            android:id="@+id/LinearLayout_left_result"
+            android:id="@+id/LinearLayout_left_result1"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
@@ -19,7 +19,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/LinearLayout_midle_result"
+            android:id="@+id/LinearLayout_midle_result1"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
@@ -33,7 +33,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/LinearLayout_right_result"
+            android:id="@+id/LinearLayout_right_result1"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"

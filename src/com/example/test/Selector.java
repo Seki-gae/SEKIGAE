@@ -24,7 +24,7 @@ public class Selector {
 			public void onClick(View v) {
 				// イメージ画像がクリックされたときに実行される処理
 				if (!Selector.this.isSameSex()) {
-					 Selector.this.listner.onTouchListner(Selector.this.member);
+					Selector.this.listner.onTouchListner(Selector.this.member);
 				}
 			}
 		});
@@ -32,7 +32,7 @@ public class Selector {
 
 	boolean isSameSex() {
 		// TODO Auto-generated method stub
-		if(this.member.getGender().equals(this.selectorGender)){
+		if (this.member.getGender().equals(this.selectorGender)) {
 			return true;
 		}
 		return false;
@@ -61,13 +61,12 @@ public class Selector {
 	private void setImage(Member member) {
 		// TODO Auto-generated method stub
 		String name = member.getName();
-		if(isMan()){
+		if (isMan()) {
 			name = "m" + name;
-		}
-		else{
+		} else {
 			name = "w" + name;
 		}
-		if(isSelector()){
+		if (isSelector()) {
 			name = name + "a";
 		}
 		int strId = this.context.getResources().getIdentifier(name, "drawable",
@@ -77,6 +76,9 @@ public class Selector {
 		int ma = R.drawable.ma;
 		System.out.println("ma" + ma);
 		this.imageView.setImageResource(strId);
+		if (isSameSex() && !isSelector())
+			imageView.setColorFilter(0xccAAAAAA);
+
 	}
 
 	private boolean isSelector() {
@@ -91,8 +93,8 @@ public class Selector {
 	public Boolean isMan() {
 		return this.isMan;
 	}
-	
-	public void setSelector(){
+
+	public void setSelector() {
 		this.select = true;
 	}
 
